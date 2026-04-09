@@ -24,10 +24,10 @@ export default function GuideSection() {
           <div className="relative max-w-[400px] mx-auto lg:mx-0">
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src={images.kellyHeadshot}
+                src={images.kellyPortrait}
                 alt="Kelly Fung, Fort Lauderdale RE/MAX Real Estate Agent"
                 width={500}
-                height={600}
+                height={667}
                 className="w-full h-auto object-cover"
               />
             </div>

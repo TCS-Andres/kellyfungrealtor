@@ -2,6 +2,7 @@ export const images = {
   heroBg: "/images/hero-bg.jpg",
   successBg: "/images/success-bg.jpg",
   kellyHeadshot: "/images/kelly-headshot.jpg",
+  kellyPortrait: "/images/kelly-portrait.jpg",
   remaxLogo: "/images/remax-logo.svg",
   areaFortLauderdale: "/images/area-fort-lauderdale.jpg",
   areaWeston: "/images/area-weston.jpg",
@@ -10,10 +11,10 @@ export const images = {
   areaMiami: "/images/area-miami.jpg",
   ctaBg: "/images/cta-bg.jpg",
   investmentProperty: "/images/investment-property.jpg",
+  // Real photos from Kelly's existing site
+  listingExterior: "/images/listing-exterior.jpg",
+  listingPatio: "/images/listing-patio.jpg",
+  listingAerial: "/images/listing-aerial.jpg",
   charityPhoto1: "/images/charity-1.jpg",
   charityPhoto2: "/images/charity-2.jpg",
-  photographyService: "/images/service-photography.jpg",
-  stagingService: "/images/service-staging.jpg",
-  communicationService: "/images/service-communication.jpg",
-  negotiationService: "/images/service-negotiation.jpg",
 };

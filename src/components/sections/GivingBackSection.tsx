@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -11,15 +12,23 @@ export default function GivingBackSection() {
         {/* Photos */}
         <AnimatedSection direction="left">
           <div className="grid gap-4">
-            <div className="rounded-xl overflow-hidden shadow-md aspect-[4/3] bg-gradient-to-br from-brand-gold/15 to-success/10 flex items-center justify-center">
-              <p className="text-text-secondary/40 text-sm font-medium px-8 text-center">
-                Dec My Room charity photo — Kelly volunteering with children
-              </p>
+            <div className="rounded-xl overflow-hidden shadow-md aspect-[4/3] relative">
+              <Image
+                src="/images/gallery-dec-my-room.jpg"
+                alt="Kelly Fung shopping for Dec My Room charity supplies"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
-            <div className="rounded-xl overflow-hidden shadow-md aspect-[4/3] bg-gradient-to-br from-success/10 to-brand-blue/10 flex items-center justify-center">
-              <p className="text-text-secondary/40 text-sm font-medium px-8 text-center">
-                Dec My Room — Decorated healing space for pediatric patients
-              </p>
+            <div className="rounded-xl overflow-hidden shadow-md aspect-[4/3] relative">
+              <Image
+                src="/images/gallery-dec-room-kids.jpg"
+                alt="Decorated healing space for pediatric patient created by Dec My Room"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </AnimatedSection>

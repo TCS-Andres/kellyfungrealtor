@@ -94,7 +94,9 @@ export default function Footer() {
             <InstagramIcon size={20} />
           </a>
           <a
-            href="#"
+            href="https://www.facebook.com/profile.php?id=61562435458978"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Follow Kelly on Facebook"
             className="text-white/70 hover:text-white transition-colors"
           >
