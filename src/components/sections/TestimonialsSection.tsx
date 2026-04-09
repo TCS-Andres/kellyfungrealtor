@@ -1,151 +1,99 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SilkBackground from "@/components/ui/SilkBackground";
+import { AnimatedTestimonials, type Testimonial } from "@/components/ui/animated-testimonials";
 
-// TODO: Replace these sample testimonials with actual client reviews from Kelly's website
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
-    quote:
-      "Kelly made our first home purchase feel effortless. She was patient, knowledgeable, and always available to answer our questions. We couldn't have done it without her!",
-    name: "The Martinez Family",
-    location: "Fort Lauderdale, FL",
+    id: 1,
+    name: "Marifer Vergara",
+    role: "USA Mortgage Homes",
+    content:
+      "At USA Mortgage Homes, we had the pleasure of working with Kelly Fung, Realtor, and the experience was outstanding. Kelly is relentless when it comes to serving her clients — always proactive, detail-oriented, and committed to making the process as smooth as possible. We truly value working alongside real estate partners who share our dedication to putting clients first, and Kelly exemplifies that every step of the way.",
+    rating: 5,
+    initials: "MV",
+    color: "#7C3AED",
   },
   {
-    quote:
-      "We sold our home in Weston in just two weeks — above asking price! Kelly's staging advice and professional photography made all the difference. She's the real deal.",
-    name: "David & Sarah Thompson",
-    location: "Weston, FL",
+    id: 2,
+    name: "Riley",
+    role: "Home Buyer — Broward County",
+    content:
+      "Working with Kelly was a blessing. From the very beginning, Kelly impressed us with her deep market knowledge, sharp negotiating skills, and genuine care for our needs. She took the time to truly understand what we were looking for and guided us through every step of the buying process with patience and professionalism. She was always one step ahead, anticipating potential challenges and offering creative solutions that made the entire experience smooth and stress-free.",
+    rating: 5,
+    initials: "R",
+    color: "#2563EB",
   },
   {
-    quote:
-      "As an investor, I need an agent who understands the numbers and moves fast. Kelly consistently finds me properties with strong ROI potential. She's become my go-to agent for every deal.",
-    name: "Michael Chen",
-    location: "Pembroke Pines, FL",
+    id: 3,
+    name: "Scott Leaser",
+    role: "Home Seller — Fort Lauderdale",
+    content:
+      "It is always an exceptional experience working with Kelly. From start to finish, she will bring tremendous energy and expertise to the process of selling your home. I have not seen a realtor stage a property like Kelly does and she really has an incredible eye for design in a way that truly highlights its best features. Her transformations are stunning. She is responsive, professional and a genuine hustler. I can't recommend Kelly Fung enough.",
+    rating: 5,
+    initials: "SL",
+    color: "#059669",
   },
   {
-    quote:
-      "Kelly helped us relocate from New York to Fort Lauderdale, and she made what could have been an incredibly stressful process smooth and even enjoyable. She knew every neighborhood inside and out.",
-    name: "The Andersons",
-    location: "Fort Lauderdale, FL",
+    id: 4,
+    name: "Nicole Ingrati",
+    role: "Home Buyer — South Florida",
+    content:
+      "Just wanted to give a quick shoutout to my realtor — working with Kelly was such a smooth and enjoyable experience! She was super knowledgeable, always quick to respond, and genuinely had my best interest at heart. Whether it was answering our questions, arranging showings at convenient times, or providing valuable insights about the neighborhoods we were considering, I always knew she had our best interests at heart.",
+    rating: 5,
+    initials: "NI",
+    color: "#DC2626",
   },
   {
-    quote:
-      "What sets Kelly apart is that she genuinely cares. She's not just trying to close a deal — she's trying to find you the right home. That makes all the difference.",
-    name: "Lisa Rodriguez",
-    location: "South West Ranches, FL",
+    id: 5,
+    name: "Juan Lamonaca",
+    role: "Property Investor — Broward County",
+    content:
+      "Kelly is my go to realtor for all our properties, the attention she gives is unmatched. She does whatever it takes and has sold many of our homes, and has helped us find our dream home. Highly recommend Kelly!!",
+    rating: 5,
+    initials: "JL",
+    color: "#D97706",
+  },
+  {
+    id: 6,
+    name: "Leah Abbondandolo",
+    role: "Home Buyer — Broward County",
+    content:
+      "Kelly is exceptional! She is so kind and straight-to-the-point. I told her my preferences, ideal areas and budget. She took everything into consideration and provided me her recommendations as well. Without her, I would not have found my dream home.",
+    rating: 5,
+    initials: "LA",
+    color: "#9333EA",
+  },
+  {
+    id: 7,
+    name: "Karly Blake",
+    role: "Home Buyer — Fort Lauderdale",
+    content:
+      "I had the absolute pleasure of working with Kelly when purchasing my house. She is intuitive and understands when a more assertive approach is needed. I truly believe I would have lost this property if not for her, and I'm truly grateful for her experience and expertise.",
+    rating: 5,
+    initials: "KB",
+    color: "#0891B2",
+  },
+  {
+    id: 8,
+    name: "Luke H",
+    role: "First-Time Home Buyer",
+    content:
+      "If I could give 100 stars I would, Kelly was absolutely fantastic at everything she does. As first time home sellers and buyers she helped us through soo many challenges and became more of a friend/mentor rather than realtor to us. And we appreciate her hard work & friendship through this next chapter of our lives. Thanks Kelly!!!!",
+    rating: 5,
+    initials: "LH",
+    color: "#4F46E5",
   },
 ];
 
 export default function TestimonialsSection() {
-  const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  const next = useCallback(() => {
-    setDirection(1);
-    setCurrent((prev) => (prev + 1) % testimonials.length);
-  }, []);
-
-  const prev = () => {
-    setDirection(-1);
-    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  useEffect(() => {
-    if (paused) return;
-    const timer = setInterval(next, 6000);
-    return () => clearInterval(timer);
-  }, [paused, next]);
-
-  const variants = {
-    enter: (d: number) => ({ x: d > 0 ? 200 : -200, opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (d: number) => ({ x: d > 0 ? -200 : 200, opacity: 0 }),
-  };
-
   return (
-    <section id="testimonials" className="relative py-12 md:py-20 overflow-hidden">
+    <section id="testimonials" className="relative py-16 md:py-24 overflow-hidden">
       <SilkBackground colorR={20} colorG={30} colorB={50} noiseIntensity={0.6} />
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-brand-blue/50 via-transparent to-brand-blue/50" />
       <div className="relative z-10 mx-auto max-w-[1280px] px-5 md:px-8">
-        <SectionHeading
-          eyebrow="WHAT MY CLIENTS SAY"
-          title="Real Stories, Real Results"
-          light
-        />
-        <div
-          className="relative max-w-[800px] mx-auto"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-        >
-          <div className="min-h-[220px] flex items-center">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={current}
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="text-center w-full"
-              >
-                <span
-                  className="text-6xl md:text-7xl text-brand-gold/40 block mb-2"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
-                  &ldquo;
-                </span>
-                <p className="text-lg md:text-xl italic text-white/90 leading-relaxed mb-6 -mt-8">
-                  {testimonials[current].quote}
-                </p>
-                <p className="font-semibold text-base text-brand-gold">
-                  {testimonials[current].name}
-                </p>
-                <p className="text-sm text-white/60">
-                  {testimonials[current].location}
-                </p>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <button
-              onClick={prev}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-brand-gold hover:text-brand-gold transition-colors"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <div className="flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => {
-                    setDirection(i > current ? 1 : -1);
-                    setCurrent(i);
-                  }}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                    i === current ? "bg-brand-gold" : "bg-white/20"
-                  }`}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={next}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-brand-gold hover:text-brand-gold transition-colors"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-        </div>
+        <AnimatedTestimonials testimonials={testimonials} autoRotateInterval={7000} />
       </div>
     </section>
   );
