@@ -1,46 +1,38 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { images } from "@/config/images";
 
 export default function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-
   const items = [
-    { delay: 0.2, content: "eyebrow" },
-    { delay: 0.35, content: "h1" },
-    { delay: 0.5, content: "subtitle" },
-    { delay: 0.65, content: "cta" },
-    { delay: 0.8, content: "badges" },
+    { delay: 0.2 },
+    { delay: 0.35 },
+    { delay: 0.5 },
+    { delay: 0.65 },
+    { delay: 0.8 },
   ];
 
   return (
     <section
       id="home"
-      ref={ref}
       className="relative h-screen min-h-[600px] flex items-end justify-center overflow-hidden"
     >
-      {/* Parallax Background */}
-      <motion.div className="absolute inset-0 z-0" style={{ y }}>
-        <Image
-          src={images.heroBg}
-          alt="Aerial view of Fort Lauderdale Florida waterfront luxury homes at golden hour"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-      </motion.div>
+      {/* Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster={images.heroBg}
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/images/hero-video.mp4" type="video/mp4" />
+      </video>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+      {/* Overlay — dark gradient for text legibility */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0C1B33]/90 via-black/50 to-[#0C1B33]/30" />
+      <div className="absolute inset-0 z-[2] bg-black/20" />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-8 pb-16 md:pb-24 text-center">
