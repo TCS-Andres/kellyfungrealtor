@@ -6,6 +6,7 @@ import { MapPin, Phone, Clock, Send, CheckCircle } from "lucide-react";
 import { InstagramIcon } from "@/components/icons/SocialIcons";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
+import SilkBackground from "@/components/ui/SilkBackground";
 import { brand } from "@/config/brand";
 
 interface FormData {
@@ -31,8 +32,10 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-12 md:py-20 bg-brand-blue">
-      <div className="mx-auto max-w-[1200px] px-5 md:px-8">
+    <section id="contact" className="relative py-12 md:py-20 overflow-hidden">
+      <SilkBackground colorR={18} colorG={28} colorB={48} speed={0.012} />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-brand-blue/60 via-brand-blue/20 to-brand-blue/60" />
+      <div className="relative z-10 mx-auto max-w-[1200px] px-5 md:px-8">
         <SectionHeading
           eyebrow="LET'S CONNECT"
           title="Ready to Start Your Real Estate Journey?"
@@ -43,17 +46,21 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {/* Left: Contact Info */}
           <AnimatedSection>
-            <div className="bg-white rounded-xl shadow-xl p-6 md:p-8">
-              <h3 className="text-2xl font-semibold text-text-primary mb-6">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-8 ring-1 ring-brand-gold/10">
+              <h3 className="text-2xl font-semibold text-text-primary mb-6" style={{ fontFamily: "var(--font-heading)" }}>
                 Get in Touch
               </h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <MapPin className="text-brand-blue shrink-0 mt-0.5" size={20} />
+                  <div className="w-8 h-8 rounded-lg bg-brand-blue/5 flex items-center justify-center shrink-0 mt-0.5">
+                    <MapPin className="text-brand-gold" size={16} />
+                  </div>
                   <span className="text-sm text-text-secondary">{brand.address}</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Phone className="text-brand-blue shrink-0" size={20} />
+                  <div className="w-8 h-8 rounded-lg bg-brand-blue/5 flex items-center justify-center shrink-0">
+                    <Phone className="text-brand-gold" size={16} />
+                  </div>
                   <a
                     href={brand.phoneLink}
                     className="text-sm text-text-secondary hover:text-brand-blue transition-colors"
@@ -62,11 +69,15 @@ export default function ContactSection() {
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Clock className="text-brand-blue shrink-0" size={20} />
+                  <div className="w-8 h-8 rounded-lg bg-brand-blue/5 flex items-center justify-center shrink-0">
+                    <Clock className="text-brand-gold" size={16} />
+                  </div>
                   <span className="text-sm text-text-secondary">{brand.hours}</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <InstagramIcon className="text-brand-blue shrink-0" size={20} />
+                  <div className="w-8 h-8 rounded-lg bg-brand-blue/5 flex items-center justify-center shrink-0">
+                    <InstagramIcon className="text-brand-gold" size={16} />
+                  </div>
                   <a
                     href={brand.instagramUrl}
                     target="_blank"
@@ -78,8 +89,7 @@ export default function ContactSection() {
                 </li>
               </ul>
 
-              {/* Google Maps Embed */}
-              <div className="mt-6 rounded-lg overflow-hidden">
+              <div className="mt-6 rounded-xl overflow-hidden ring-1 ring-black/5">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.0!2d-80.1373!3d26.1003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDA2JzAxLjEiTiA4MMKwMDgnMTQuMyJX!5e0!3m2!1sen!2sus!4v1"
                   width="100%"
@@ -96,8 +106,8 @@ export default function ContactSection() {
 
           {/* Right: Contact Form */}
           <AnimatedSection delay={0.2}>
-            <div className="bg-white rounded-xl shadow-xl p-6 md:p-8">
-              <h3 className="text-2xl font-semibold text-text-primary mb-6">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-8 ring-1 ring-brand-gold/10">
+              <h3 className="text-2xl font-semibold text-text-primary mb-6" style={{ fontFamily: "var(--font-heading)" }}>
                 Send Me a Message
               </h3>
 
@@ -121,7 +131,7 @@ export default function ContactSection() {
                       id="name"
                       type="text"
                       {...register("name", { required: true })}
-                      className={`w-full rounded-lg border px-3 py-2.5 text-sm bg-bg-light ${
+                      className={`w-full rounded-lg border px-3 py-2.5 text-sm bg-bg-light focus:outline-none focus:ring-2 focus:ring-brand-gold/30 ${
                         errors.name ? "border-brand-red" : "border-gray-200"
                       }`}
                     />
@@ -134,7 +144,7 @@ export default function ContactSection() {
                       id="email"
                       type="email"
                       {...register("email", { required: true })}
-                      className={`w-full rounded-lg border px-3 py-2.5 text-sm bg-bg-light ${
+                      className={`w-full rounded-lg border px-3 py-2.5 text-sm bg-bg-light focus:outline-none focus:ring-2 focus:ring-brand-gold/30 ${
                         errors.email ? "border-brand-red" : "border-gray-200"
                       }`}
                     />
@@ -147,7 +157,7 @@ export default function ContactSection() {
                       id="phone-input"
                       type="tel"
                       {...register("phone")}
-                      className="w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm bg-bg-light"
+                      className="w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm bg-bg-light focus:outline-none focus:ring-2 focus:ring-brand-gold/30"
                     />
                   </div>
                   <div>
@@ -157,7 +167,7 @@ export default function ContactSection() {
                     <select
                       id="subject"
                       {...register("subject", { required: true })}
-                      className={`w-full rounded-lg border px-3 py-2.5 text-sm bg-bg-light ${
+                      className={`w-full rounded-lg border px-3 py-2.5 text-sm bg-bg-light focus:outline-none focus:ring-2 focus:ring-brand-gold/30 ${
                         errors.subject ? "border-brand-red" : "border-gray-200"
                       }`}
                     >
@@ -178,21 +188,21 @@ export default function ContactSection() {
                       id="message"
                       rows={4}
                       {...register("message", { required: true })}
-                      className={`w-full rounded-lg border px-3 py-2.5 text-sm bg-bg-light resize-none ${
+                      className={`w-full rounded-lg border px-3 py-2.5 text-sm bg-bg-light resize-none focus:outline-none focus:ring-2 focus:ring-brand-gold/30 ${
                         errors.message ? "border-brand-red" : "border-gray-200"
                       }`}
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 rounded-lg bg-brand-blue px-6 py-3 text-white font-bold transition-all duration-200 hover:scale-[1.01] hover:shadow-lg"
+                    className="w-full flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-brand-blue to-brand-navy px-6 py-3 text-white font-bold transition-all duration-200 hover:shadow-lg hover:shadow-brand-blue/20"
                   >
                     <Send size={16} />
                     Send Message
                   </button>
                   <p className="text-center text-xs text-text-secondary">
                     Or call me directly at{" "}
-                    <a href={brand.phoneLink} className="text-brand-blue hover:underline">
+                    <a href={brand.phoneLink} className="text-brand-gold hover:underline">
                       {brand.phone}
                     </a>{" "}
                     — I&apos;d love to hear from you!

@@ -46,7 +46,7 @@ export default function FAQSection() {
         {faqs.map((faq, i) => (
           <div
             key={i}
-            className="bg-white rounded-lg shadow-sm overflow-hidden"
+            className="bg-white rounded-xl shadow-sm overflow-hidden ring-1 ring-black/[0.03]"
           >
             <button
               onClick={() => setOpenIndex(openIndex === i ? null : i)}

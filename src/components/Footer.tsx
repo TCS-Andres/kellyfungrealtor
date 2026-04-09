@@ -4,7 +4,7 @@ import { brand } from "@/config/brand";
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-blue text-white">
+    <footer className="bg-gradient-to-b from-brand-blue to-[#08121F] text-white">
       <div className="mx-auto max-w-[1280px] px-5 md:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Col 1: Brand */}

@@ -22,7 +22,7 @@ export default function GuideSection() {
         {/* Image */}
         <AnimatedSection direction="left" className="lg:col-span-2">
           <div className="relative max-w-[400px] mx-auto lg:mx-0">
-            <div className="rounded-2xl overflow-hidden shadow-xl">
+            <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-brand-gold/10">
               <Image
                 src={images.kellyPortrait}
                 alt="Kelly Fung, Fort Lauderdale RE/MAX Real Estate Agent"
@@ -32,6 +32,7 @@ export default function GuideSection() {
               />
             </div>
             <div className="absolute -bottom-3 -left-3 w-20 h-20 border-b-4 border-l-4 border-brand-gold rounded-bl-2xl" />
+            <div className="absolute -top-3 -right-3 w-16 h-16 border-t-4 border-r-4 border-brand-gold/30 rounded-tr-2xl" />
           </div>
         </AnimatedSection>
 
@@ -63,7 +64,9 @@ export default function GuideSection() {
           <ul className="mt-6 space-y-3">
             {credentials.map((item) => (
               <li key={item} className="flex items-start gap-3">
-                <Check className="text-success mt-0.5 shrink-0" size={18} />
+                <div className="mt-0.5 w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center shrink-0">
+                  <Check className="text-brand-gold" size={12} />
+                </div>
                 <span className="text-sm font-medium text-text-primary">{item}</span>
               </li>
             ))}

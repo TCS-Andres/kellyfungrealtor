@@ -22,7 +22,7 @@ export default function MobileStickyBar() {
           animate={{ y: 0 }}
           exit={{ y: 100 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-brand-blue/95 backdrop-blur-md px-4 py-3"
+          className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-gradient-to-r from-brand-blue/95 to-brand-navy/95 backdrop-blur-md px-4 py-3"
           style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
         >
           <div className="flex gap-3">

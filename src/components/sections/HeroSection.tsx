@@ -83,13 +83,13 @@ export default function HeroSection() {
         >
           <a
             href="#contact"
-            className="rounded-full bg-white px-8 py-3.5 text-brand-blue font-bold transition-all duration-200 hover:scale-[1.03] hover:shadow-lg"
+            className="rounded-full bg-brand-gold px-8 py-3.5 text-brand-blue font-bold transition-all duration-200 hover:scale-[1.03] hover:shadow-lg hover:shadow-brand-gold/30"
           >
             Contact Kelly Today
           </a>
           <a
             href="#services"
-            className="rounded-full border-2 border-white px-8 py-3.5 text-white font-bold transition-all duration-200 hover:bg-white/10"
+            className="rounded-full border-2 border-white/40 px-8 py-3.5 text-white font-bold transition-all duration-200 hover:bg-white/10 hover:border-white/60"
           >
             Explore My Services
           </a>

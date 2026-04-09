@@ -87,7 +87,7 @@ export default function Navigation() {
           </a>
           <a
             href="#contact"
-            className="rounded-full bg-brand-blue px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-lg"
+            className="rounded-full bg-gradient-to-r from-brand-blue to-brand-navy px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-lg hover:shadow-brand-blue/20"
           >
             Contact Kelly Today
           </a>

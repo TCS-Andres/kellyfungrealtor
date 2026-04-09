@@ -52,9 +52,12 @@ export default function ServicesSection() {
           <motion.div
             key={service.title}
             variants={staggerItem}
-            className="bg-white rounded-xl shadow-md p-8 border-t-4 border-brand-blue transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+            className="group bg-white rounded-2xl border border-gray-100 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 hover:border-brand-gold/20 relative overflow-hidden"
           >
-            <service.icon className="text-brand-blue mb-4" size={40} />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue via-brand-navy to-brand-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-brand-blue to-brand-navy flex items-center justify-center mb-5">
+              <service.icon className="text-brand-gold" size={22} />
+            </div>
             <h4 className="text-xl font-semibold text-text-primary mb-3">
               {service.title}
             </h4>

@@ -46,25 +46,25 @@ const rows = [
 
 export default function WhyKellySection() {
   return (
-    <SectionWrapper bgColor="bg-bg-alt">
+    <SectionWrapper bgColor="bg-bg-light">
       <SectionHeading
         eyebrow="WHY CHOOSE KELLY"
         title="The Kelly Fung Difference"
       />
-      <div className="space-y-12 md:space-y-16">
+      <div className="space-y-16 md:space-y-24">
         {rows.map((row, i) => {
           const imgLeft = i % 2 === 0;
           return (
             <div
               key={row.title}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"
             >
               {/* Image */}
               <AnimatedSection
                 direction={imgLeft ? "left" : "right"}
                 className={imgLeft ? "" : "lg:order-2"}
               >
-                <div className="rounded-xl shadow-lg overflow-hidden aspect-[4/3] relative transition-transform duration-300 hover:scale-[1.02]">
+                <div className="rounded-2xl shadow-xl overflow-hidden aspect-[4/3] relative transition-transform duration-300 hover:scale-[1.02] ring-1 ring-black/5">
                   <Image
                     src={row.image}
                     alt={row.alt}
@@ -81,7 +81,13 @@ export default function WhyKellySection() {
                 delay={0.2}
                 className={imgLeft ? "" : "lg:order-1"}
               >
-                <h3 className="text-2xl md:text-[28px] font-semibold text-text-primary mb-4">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="block w-8 h-px bg-brand-gold" />
+                  <span className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-gold">
+                    0{i + 1}
+                  </span>
+                </div>
+                <h3 className="text-2xl md:text-[28px] font-semibold text-text-primary mb-4" style={{ fontFamily: "var(--font-heading)" }}>
                   {row.title}
                 </h3>
                 <p className="text-base text-text-secondary leading-relaxed">

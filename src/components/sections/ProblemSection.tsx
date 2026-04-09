@@ -37,10 +37,10 @@ export default function ProblemSection() {
           <motion.div
             key={problem.title}
             variants={staggerItem}
-            className="bg-white rounded-xl shadow-md p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+            className="bg-white rounded-2xl border border-brand-gold/10 shadow-sm p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:border-brand-gold/20"
           >
-            <div className="w-14 h-14 rounded-full bg-brand-blue/10 flex items-center justify-center mb-5">
-              <problem.icon className="text-brand-blue" size={28} />
+            <div className="w-14 h-14 rounded-full bg-brand-blue/5 flex items-center justify-center mb-5">
+              <problem.icon className="text-brand-gold" size={26} />
             </div>
             <h4 className="text-xl font-semibold text-text-primary mb-3">
               {problem.title}
