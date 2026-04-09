@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
+import Image from "next/image";
 import { brand } from "@/config/brand";
 
 const navLinks = [
@@ -30,7 +31,9 @@ export default function Navigation() {
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   return (
@@ -41,24 +44,19 @@ export default function Navigation() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-5 md:px-8 py-4">
+      <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-5 md:px-8 py-3">
         {/* Logo */}
-        <a href="#home" className="flex flex-col leading-tight">
-          <span
-            className={`text-xl font-bold transition-colors duration-300 ${
-              scrolled ? "text-brand-blue" : "text-white"
+        <a href="#home" className="block">
+          <Image
+            src="/images/logo-kelly-fung.png"
+            alt="Kelly Fung Realtor"
+            width={140}
+            height={70}
+            className={`h-12 md:h-14 w-auto transition-all duration-300 ${
+              scrolled ? "" : "brightness-0 invert"
             }`}
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Kelly Fung
-          </span>
-          <span
-            className={`text-xs font-medium tracking-wide transition-colors duration-300 ${
-              scrolled ? "text-text-secondary" : "text-white/80"
-            }`}
-          >
-            RE/MAX Realtor
-          </span>
+            priority
+          />
         </a>
 
         {/* Desktop Nav */}
@@ -117,6 +115,14 @@ export default function Navigation() {
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 top-0 z-40 bg-brand-blue/98 backdrop-blur-md flex flex-col items-center justify-center gap-6 lg:hidden"
           >
+            {/* Logo in mobile menu */}
+            <Image
+              src="/images/logo-kelly-fung.png"
+              alt="Kelly Fung Realtor"
+              width={160}
+              height={80}
+              className="h-16 w-auto brightness-0 invert mb-4"
+            />
             {navLinks.map((link, i) => (
               <motion.a
                 key={link.href}
