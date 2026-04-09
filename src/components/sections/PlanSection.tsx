@@ -27,7 +27,7 @@ const steps = [
 export default function PlanSection() {
   return (
     <section className="relative py-12 md:py-20 overflow-hidden">
-      <SilkBackground colorR={30} colorG={42} colorB={65} speed={0.01} />
+      <SilkBackground colorR={30} colorG={42} colorB={65} />
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-brand-blue/40 via-transparent to-brand-blue/40" />
       <div className="relative z-10 mx-auto max-w-[1280px] px-5 md:px-8">
         <SectionHeading

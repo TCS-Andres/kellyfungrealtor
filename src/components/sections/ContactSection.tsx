@@ -33,7 +33,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="relative py-12 md:py-20 overflow-hidden">
-      <SilkBackground colorR={18} colorG={28} colorB={48} speed={0.012} />
+      <SilkBackground colorR={18} colorG={28} colorB={48} />
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-brand-blue/60 via-brand-blue/20 to-brand-blue/60" />
       <div className="relative z-10 mx-auto max-w-[1200px] px-5 md:px-8">
         <SectionHeading

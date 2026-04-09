@@ -69,7 +69,7 @@ export default function TestimonialsSection() {
 
   return (
     <section id="testimonials" className="relative py-12 md:py-20 overflow-hidden">
-      <SilkBackground colorR={20} colorG={30} colorB={50} speed={0.01} noiseIntensity={0.6} />
+      <SilkBackground colorR={20} colorG={30} colorB={50} noiseIntensity={0.6} />
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-brand-blue/50 via-transparent to-brand-blue/50" />
       <div className="relative z-10 mx-auto max-w-[1280px] px-5 md:px-8">
         <SectionHeading

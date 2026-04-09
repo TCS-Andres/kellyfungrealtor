@@ -18,24 +18,24 @@ const container = (stagger: number) => ({
 });
 
 export const staggerItem = {
-  hidden: { y: 30, opacity: 0 },
+  hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.5, ease: "easeOut" as const },
+    transition: { duration: 0.4, ease: "easeOut" as const },
   },
 };
 
 export default function StaggerChildren({
   children,
-  staggerDelay = 0.1,
+  staggerDelay = 0.08,
   className = "",
 }: StaggerChildrenProps) {
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-60px" }}
       variants={container(staggerDelay)}
       className={className}
     >

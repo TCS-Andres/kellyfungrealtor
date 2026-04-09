@@ -2,7 +2,6 @@
 
 import CounterAnimation from "@/components/ui/CounterAnimation";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import SilkBackground from "@/components/ui/SilkBackground";
 
 const stats = [
   { target: 4, suffix: "+", label: "Years of Experience" },
@@ -13,16 +12,14 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="relative py-16 md:py-20 overflow-hidden">
-      <SilkBackground colorR={25} colorG={35} colorB={55} speed={0.008} />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-brand-blue/30 via-transparent to-brand-blue/30" />
+    <section className="relative py-16 md:py-20 bg-bg-alt overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[1000px] px-5 md:px-8">
         <AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div
-                  className="text-4xl md:text-5xl font-bold text-brand-gold mb-2"
+                  className="text-4xl md:text-5xl font-bold text-brand-blue mb-2"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   <CounterAnimation
@@ -31,18 +28,18 @@ export default function StatsSection() {
                     suffix={stat.suffix}
                   />
                 </div>
-                <p className="text-sm md:text-base font-medium text-white/70">
+                <p className="text-sm md:text-base font-medium text-text-secondary">
                   {stat.label}
                 </p>
               </div>
             ))}
           </div>
           <div className="mt-8 flex items-center justify-center gap-3">
-            <span className="block w-12 h-px bg-brand-gold/30" />
-            <p className="text-center text-sm text-white/50 italic">
+            <span className="block w-12 h-px bg-brand-gold/40" />
+            <p className="text-center text-sm text-text-secondary italic">
               Voted the Most Trusted Agents in Real Estate — RE/MAX
             </p>
-            <span className="block w-12 h-px bg-brand-gold/30" />
+            <span className="block w-12 h-px bg-brand-gold/40" />
           </div>
         </AnimatedSection>
       </div>

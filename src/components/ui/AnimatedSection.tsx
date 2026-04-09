@@ -10,9 +10,9 @@ interface AnimatedSectionProps {
 }
 
 const variants = {
-  up: { hidden: { y: 40, opacity: 0 }, visible: { y: 0, opacity: 1 } },
-  left: { hidden: { x: -60, opacity: 0 }, visible: { x: 0, opacity: 1 } },
-  right: { hidden: { x: 60, opacity: 0 }, visible: { x: 0, opacity: 1 } },
+  up: { hidden: { y: 24, opacity: 0 }, visible: { y: 0, opacity: 1 } },
+  left: { hidden: { x: -30, opacity: 0 }, visible: { x: 0, opacity: 1 } },
+  right: { hidden: { x: 30, opacity: 0 }, visible: { x: 0, opacity: 1 } },
   fade: { hidden: { opacity: 0 }, visible: { opacity: 1 } },
 };
 
@@ -26,8 +26,8 @@ export default function AnimatedSection({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: "easeOut", delay }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.45, ease: "easeOut", delay }}
       variants={variants[direction]}
       className={className}
     >

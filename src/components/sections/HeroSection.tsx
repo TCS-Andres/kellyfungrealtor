@@ -14,11 +14,11 @@ export default function HeroSection() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   const items = [
-    { delay: 0.3, content: "eyebrow" },
-    { delay: 0.5, content: "h1" },
-    { delay: 0.7, content: "subtitle" },
-    { delay: 0.9, content: "cta" },
-    { delay: 1.1, content: "badges" },
+    { delay: 0.2, content: "eyebrow" },
+    { delay: 0.35, content: "h1" },
+    { delay: 0.5, content: "subtitle" },
+    { delay: 0.65, content: "cta" },
+    { delay: 0.8, content: "badges" },
   ];
 
   return (
@@ -47,7 +47,7 @@ export default function HeroSection() {
         <motion.p
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: items[0].delay, duration: 0.7, ease: "easeOut" }}
+          transition={{ delay: items[0].delay, duration: 0.5, ease: "easeOut" }}
           className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold mb-4"
         >
           RE/MAX CONSULTANTS REALTY I — FORT LAUDERDALE, FL
@@ -56,7 +56,7 @@ export default function HeroSection() {
         <motion.h1
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: items[1].delay, duration: 0.7, ease: "easeOut" }}
+          transition={{ delay: items[1].delay, duration: 0.5, ease: "easeOut" }}
           className="text-4xl md:text-[56px] font-bold text-white leading-tight mb-6"
           style={{ fontFamily: "var(--font-heading)" }}
         >
@@ -67,7 +67,7 @@ export default function HeroSection() {
         <motion.p
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: items[2].delay, duration: 0.7, ease: "easeOut" }}
+          transition={{ delay: items[2].delay, duration: 0.5, ease: "easeOut" }}
           className="text-base md:text-lg text-white/90 max-w-[700px] mx-auto mb-8 leading-relaxed"
         >
           Whether you&apos;re buying your dream home, selling for top dollar, or
@@ -78,7 +78,7 @@ export default function HeroSection() {
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: items[3].delay, duration: 0.7, ease: "easeOut" }}
+          transition={{ delay: items[3].delay, duration: 0.5, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
         >
           <a
@@ -98,7 +98,7 @@ export default function HeroSection() {
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: items[4].delay, duration: 0.7, ease: "easeOut" }}
+          transition={{ delay: items[4].delay, duration: 0.5, ease: "easeOut" }}
           className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-white/80 text-sm"
         >
           <Image
